@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Model\Starship;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Model\StarshipStatusEnum;
 
 class StarshipRepository
 {
@@ -18,28 +18,28 @@ class StarshipRepository
         'Millennium Falcon',
         'Garden',
         'Luke Skywalker',
-        'available',
+        StarshipStatusEnum::COMPLETED,
       ),
       new Starship(
         2,
         'X-Wing',
         'Fighter',
         'Han Solo',
-        'available',
+        StarshipStatusEnum::WAITING,
       ),
       new Starship(
         3,
         'Tie Fighter',
         'Fighter',
         'Leia Organa',
-        'send to hq for repair',
+        StarshipStatusEnum::WAITING,
       ),
       new Starship(
         4,
         'Star Destroyer',
         'Capital',
         'Darth Vader',
-        'repaired',
+        StarshipStatusEnum::IN_PROGRESS,
       ),
     ];
 

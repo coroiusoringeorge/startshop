@@ -9,16 +9,18 @@ use App\Repository\StarshipRepository;
 
 class MainController extends AbstractController
 {
-  #[Route('/', name: 'homepage')]
+  #[Route('/', name: 'app_homepage', methods: ['GET'])]
   public function homepage(StarshipRepository $starshipRepository): Response
   {
     $startShipCount = count($starshipRepository->findAll());
 
-    $ship = $starshipRepository->find(1);
+    $myShip = $starshipRepository->find(1);
+    $ships = $starshipRepository->findAll();
 
     return $this->render('main/homepage.html.twig', [
       'startShipCount' => $startShipCount,
-      'ship' => $ship,
+      'myShip' => $myShip,
+      'ships' => $ships,
     ]);
   }
 }

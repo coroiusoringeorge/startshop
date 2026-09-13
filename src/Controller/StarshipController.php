@@ -9,7 +9,7 @@ use App\Repository\StarshipRepository;
 
 class StarshipController extends AbstractController
 {
-  #[Route('/starships/{id<\d+>}', name: 'starship_show', methods: ['GET'])]
+  #[Route('/starships/{id<\d+>}', name: 'app_starship_show', methods: ['GET'])]
   public function show(int $id, StarshipRepository $starshipRepository): Response
   {
     $ship =  $starshipRepository->find($id);

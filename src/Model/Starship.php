@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use App\Model\StarshipStatusEnum;
+
 class Starship
 {
     public function __construct(
@@ -9,9 +11,8 @@ class Starship
         public string $name,
         public string $class,
         public string $captain,
-        public string $status,
-    ) {
-    }
+        public StarshipStatusEnum $status,
+    ) {}
 
     public function getId(): int
     {
@@ -22,7 +23,7 @@ class Starship
     {
         return $this->name;
     }
-    
+
     public function getClass(): string
     {
         return $this->class;
@@ -33,8 +34,13 @@ class Starship
         return $this->captain;
     }
 
-    public function getStatus(): string
+    public function getStatus(): StarshipStatusEnum
     {
         return $this->status;
+    }
+
+    public function getStatusString(): string
+    {
+        return $this->status->value;
     }
 }
